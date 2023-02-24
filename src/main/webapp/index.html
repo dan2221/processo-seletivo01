@@ -17,14 +17,22 @@
                 background-color:white;
                 padding-left: 13px;
                 padding-right: 13px;
+                width: 640px;
+                height: 440px;
             }
         </style>
     </head>
     <body>
         <h1>Banco de dados da Livraria Olá Mundo</h1>
 
-        <!--        <a href="Livro/ListarLivro.jsp">Clique em mim!</a>-->
-        <iframe src="Livro/ListarLivro.jsp" width="600" height="300" title="Lista de livros"></iframe>
+        <!-- Show content from another web page -->
+        <iframe src="Livro/ListarLivro.jsp" title="Lista de livros"></iframe>
 
+        <!-- Button for adding new items to database -->
+        <form action="InserirLivro.jsp" method="POST" style="padding-top: 7px">
+            <label>Nome do Livro: </label>
+            <input type="text" name="nome">
+            <button type="submit">ADICIONAR</button>
+        </form>
     </body>
 </html>

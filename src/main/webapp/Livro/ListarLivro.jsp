@@ -29,7 +29,7 @@
                     out.print("<a href='frmExcluirLivroVIEW.jsp?"
                             + "id=" + lista.get(i).getId_livro()
                             + "&nome=" + lista.get(i).getNome_livro()
-                            + "'> Excluir </a>");
+                            + "'> Excluir </a>&ensp;");
                     
                     // Edit item        
                     out.print("<a href='frmAlterarLivroVIEW.jsp?"
