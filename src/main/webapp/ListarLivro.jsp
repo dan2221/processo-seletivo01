@@ -16,7 +16,6 @@
     </head>
     <body>
         <%
-
             try {
                 LivroDAO objLivroDAO = new LivroDAO();
                 ArrayList<LivroDTO> lista = objLivroDAO.PesquisarLivro();
@@ -24,25 +23,25 @@
                 for (int i = 0; i < lista.size(); i++) {
                     out.print("Código: " + lista.get(i).getId_livro() + "<br>");
                     out.print("Nome: " + lista.get(i).getNome_livro() + "<br>");
-                    
-                    // Delete item
+
+                    // Option to Delete item
                     out.print("<a href='frmExcluirLivroVIEW.jsp?"
                             + "id=" + lista.get(i).getId_livro()
                             + "&nome=" + lista.get(i).getNome_livro()
                             + "'> Excluir </a>&ensp;");
-                    
-                    // Edit item        
+
+                    // Option to Edit item        
                     out.print("<a href='frmAlterarLivroVIEW.jsp?"
                             + "id=" + lista.get(i).getId_livro()
                             + "&nome=" + lista.get(i).getNome_livro()
                             + "'> Alterar </a>");
         %>
-        <br><hr> <!-- Espaço entre cada item exibido -->
+        <br><hr> <!-- Space between each showed item -->
         <%
                 }
             } catch (Exception e) {
+                out.print(e);
             }
-
         %>
     </body>
 </html>

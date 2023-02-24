@@ -4,12 +4,13 @@
  */
 package br.com.DAO;
 
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
  *
- * @author Daniel Oliveira
+ * @author
  */
 public class ConexaoDAO {
 
@@ -22,6 +23,7 @@ public class ConexaoDAO {
             String url = "jdbc:mysql://localhost:3306/sistemabiblioteca?user=root&password=";
             con = DriverManager.getConnection(url);
         } catch (Exception e) {
+            out.print(e);
         }
         return con;
     }

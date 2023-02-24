@@ -14,15 +14,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%  // Instanciando classe DTO
+        <%  // Instancing the DTO class
             LivroDTO objLivroDTO = new LivroDTO();
             objLivroDTO.setId_livro(Integer.parseInt(request.getParameter("id")));
 
-            
+            // Avoiding possible problems with special characters (like: ç, ó, ã)
             request.setCharacterEncoding("UTF-8");
+            
             objLivroDTO.setNome_livro(request.getParameter("nome"));
             LivroDAO objLivroDAO = new LivroDAO();
             objLivroDAO.AlterarLivro(objLivroDTO);
+            
+            // Return to homepage
+            request.getRequestDispatcher("ListarLivro.jsp").forward(request, response);
         %>
     </body>
 </html>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : InserirLivro
-    Created on : 23 de fev. de 2023, 17:14:27
+    Document   : ExcluirLivro
+    Created on : 23 de fev. de 2023, 21:09:58
     Author     : danie
 --%>
 
@@ -14,13 +14,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%  // Instanciando classe DTO
+        <%  // Instancing DTO class
             LivroDTO objLivroDTO = new LivroDTO();
-            request.setCharacterEncoding("UTF-8");
-            objLivroDTO.setNome_livro(request.getParameter("nome"));
+            objLivroDTO.setId_livro(Integer.parseInt(request.getParameter("id")));
             
             LivroDAO objLivroDAO = new LivroDAO();
-            objLivroDAO.CadastrarLivro(objLivroDTO);
+            objLivroDAO.ExcluirLivro(objLivroDTO);
+            // Return to homepage
+            request.getRequestDispatcher("ListarLivro.jsp").forward(request, response);
         %>
     </body>
 </html>

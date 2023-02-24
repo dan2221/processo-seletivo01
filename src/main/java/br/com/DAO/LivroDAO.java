@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author danie
+ * @author
  */
 public class LivroDAO {
 
@@ -21,7 +21,12 @@ public class LivroDAO {
     PreparedStatement pstm;
     ResultSet rs;
     ArrayList<LivroDTO> lista = new ArrayList<>();
-
+    
+    /**
+     * Add a new register to the database
+     * @param objLivroDTO
+     * @throws ClassNotFoundException 
+     */
     public void CadastrarLivro(LivroDTO objLivroDTO) throws ClassNotFoundException {
         String sql = "INSERT INTO livro (nome_livro) VALUES (?)";
         con = new ConexaoDAO().conexaoBD();
@@ -37,6 +42,11 @@ public class LivroDAO {
         }
     }
 
+    /**
+     * Delete a register from database
+     * @param objLivroDTO
+     * @throws ClassNotFoundException 
+     */
     public void ExcluirLivro(LivroDTO objLivroDTO) throws ClassNotFoundException {
         String sql = "DELETE FROM livro WHERE id_livro = ?";
         con = new ConexaoDAO().conexaoBD();
@@ -52,6 +62,11 @@ public class LivroDAO {
         }
     }
 
+    /**
+     * Edit a register from database
+     * @param objLivroDTO
+     * @throws ClassNotFoundException 
+     */
     public void AlterarLivro(LivroDTO objLivroDTO) throws ClassNotFoundException {
         // Each Interrogation means a paramter. In this case there is 2 paramters.
         String sql = "UPDATE livro SET nome_livro = ? WHERE id_livro = ?";
@@ -72,6 +87,10 @@ public class LivroDAO {
         }
     }
 
+    /**
+     * Get all registers from database
+     * @return AttayList object
+     */
     public ArrayList<LivroDTO> PesquisarLivro() {
         String sql = "SELECT * FROM livro";
         con = new ConexaoDAO().conexaoBD();
@@ -80,7 +99,7 @@ public class LivroDAO {
             pstm = con.prepareStatement(sql);
             rs = pstm.executeQuery(sql);
 
-            // Reading through all rows from table
+            // Reading through all rows in the table
             while (rs.next()) {
                 LivroDTO objLivroDTO = new LivroDTO();
                 objLivroDTO.setId_livro(rs.getInt("id_livro"));
